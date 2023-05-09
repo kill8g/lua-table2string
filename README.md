@@ -23,9 +23,11 @@ print(s)
 ```
 
 # Notes
-- tableop.tostring函数可以接收任意参数。如果参数不是一个table，它会返回参数的字符串表示。
-- tableop.tostring函数可以安全地处理table中的循环引用。它会标记已访问过的元素，避免无限递归。
+- `tableop.tostring`函数可以接收任意参数。如果参数不是一个`table`，它会返回参数的字符串表示。
+- `tableop.tostring`函数可以安全地处理table中的循环引用。它会标记已访问过的元素，避免无限递归。
 - 如果你在编译库时添加了`-D_OPEN_HEX_`选项，它会把数值类型转为16进制字符串，性能优于10进制字符串。
-- The tableop.tostring function can accept any argument. If the argument is not a table, it will return the string representation of the argument.
-- The tableop.tostring function can handle circular references in tables safely. It will mark the visited elements and avoid infinite recursion.
+- 如果你的`table`有`__pairs`元方法，那么`tableop.tostring`可能无法按照你的预期工作，它不会调用`__pairs`元方法来遍历table。
+- The `tableop.tostring` function can accept any argument. If the argument is not a `table`, it will return the string representation of the argument.
+- The `tableop.tostring` function can handle circular references in tables safely. It will mark the visited elements and avoid infinite recursion.
 - If you compile the library with the `-D_OPEN_HEX_` option, it will convert numeric values to hexadecimal strings, which have better performance than decimal strings.
+- If your table has a __pairs metamethod, then tableop.tostring may not work as you expect. It will not call the __pairs metamethod to iterate over the table.
