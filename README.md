@@ -30,4 +30,4 @@ print(s)
 - The `tableop.tostring` function can accept any argument. If the argument is not a `table`, it will return the string representation of the argument.
 - The `tableop.tostring` function can handle circular references in tables safely. It will mark the visited elements and avoid infinite recursion.
 - If you compile the library with the `-D_OPEN_HEX_` option, it will convert numeric values to hexadecimal strings, which have better performance than decimal strings.
-- If your table has a __pairs metamethod, then tableop.tostring may not work as you expect. It will not call the __pairs metamethod to iterate over the table.
+- If your table has a `__pairs` metamethod, then tableop.tostring may not work as you expect. It will not call the `__pairs` metamethod to iterate over the table.
