@@ -19,7 +19,7 @@ In your lua code, use require “tableop” to load this library, and then you c
 local tableop = require "tableop"
 local s = tableop.tostring({value = 1})
 print(s)
--- 输出：{value = 1}
+-- {value = 1}
 ```
 
 # Notes
