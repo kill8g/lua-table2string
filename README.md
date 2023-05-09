@@ -1,16 +1,20 @@
 # lua-table2string
 
 tableop是一个使用C++实现的动态库，提供给lua使用，作用是将lua的table转换为字符串。
+
 tableop is a dynamic library implemented in C++ for lua, which can convert lua tables to strings.
 
 # Installation
 
 将tableop.dll或tableop.so文件放到你的lua项目的目录下，或者添加到你的环境变量中。
+
 Put the tableop.dll or tableop.so file in your lua project directory, or add it to your environment variables.
 
 # Usage
 在你的lua代码中，使用require "tableop"来加载这个库，然后你就可以使用tableop.tostring函数来将一个table转换为字符串了。 例如：
+
 In your lua code, use require “tableop” to load this library, and then you can use the tableop.tostring function to convert a table to a string. For example:
+
 ```lua
 local tableop = require "tableop"
 local s = tableop.tostring({value = 1})
