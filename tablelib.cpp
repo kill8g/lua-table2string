@@ -171,7 +171,7 @@ static const struct luaL_Reg methods[] = {
 };
 
 extern "C"
-int luaopen_tableop(lua_State * L) {
+int luaopen_tablelib(lua_State * L) {
 	luaL_checkversion(L);
 	luaL_newlib(L, methods);
 	return 1;
