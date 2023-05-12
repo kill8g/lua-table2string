@@ -38,8 +38,8 @@ print(tablelib.tostring(tb))
 - The `tostring` function can handle circular references in tables safely. It will mark the visited elements and avoid infinite recursion.
 - 如果你在编译库时添加了`-D_OPEN_HEX_`选项，它会把数值类型转为16进制字符串，性能优于10进制字符串。
 - If you compile the library with the `-D_OPEN_HEX_` option, it will convert numeric values to hexadecimal strings, which have better performance than decimal strings.
-- 如果你的`table`有`__pairs`元方法，那么`tostring`可能无法按照你的预期工作，它不会调用`__pairs`元方法来遍历table。
-- If your table has a `__pairs` metamethod, then tostring may not work as you expect. It will not call the `__pairs` metamethod to iterate over the table.
+- 如果你的`table`有`__pairs`元方法，那么`tostring` `tojson` 可能无法按照你的预期工作，它不会调用`__pairs`元方法来遍历table。
+- If your table has a `__pairs` metamethod, then `tostring` `tojson` may not work as you expect. It will not call the `__pairs` metamethod to iterate over the table.
 - `tojson`函数会将一个`table`转为`json`格式的字符串, 为了解决`table`数值`key`过于稀疏的问题, 会将所有的数值`key`(包括浮点数)转为`string`, 并添加`_int_keys_`字段, 它是一个数组, 会记录有哪些数值`key`被转换, 例如 : `{["value"]=1,["array"]={[1]=1,[2]=2,},["hash"]={[100]=999,},}`将会被转为:`{"array":{"1":1,"2":2,"_int_keys_":["1","2"]},"value":1,"hash":{"100":999,"_int_keys_":["100"]}}`
 - The `tojson` function will convert a `table` to a `json` format string. To solve the problem of sparse numeric key in `table`, it will convert all numeric `key` (including floating point numbers) to `string`, and add `_int_keys_` field. It is an array that records which numeric `key` are converted1. For example : `{["value"]=1,["array"]={[1]=1,[2]=2,},["hash"]={[100]=999,},}` converted to : `{"array":{"1":1,"2":2,"_int_keys_":["1","2"]},"value":1,"hash":{"100":999,"_int_keys_":["100"]}}`
 - `loadjson`函数会将`json`格式的字符串转为`table`, 如果存在`_int_keys_`字段, 会遍历`_int_keys_`, 将对应的`key`转为`number`
